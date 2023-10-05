@@ -9,10 +9,11 @@ import {
     DialogHeader,
     DialogTitle    
 } from "@/components/ui/dialog"
-import { Label } from "@/components//ui/label";
-import { useModal } from "@/hooks/use-modal-store";
+import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
+import { useModal } from "@/hooks/use-modal-store";
 import { useOrigin } from "@/hooks/use-origin";
 import { useState } from "react";
 import axios from "axios";
@@ -44,7 +45,7 @@ export const InviteModal = () => {
     const onNew = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.patch(`/api/servers/${server?.id}/invite-code}`);
+            const response = await axios.patch(`/api/servers/${server?.id}/invite-code`);
             
             onOpen("invite", { server: response.data })
 
