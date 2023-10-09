@@ -22,7 +22,7 @@ export async function PATCH(
             where: {
                 id: params.serverId,
                 profileId: {
-                    not: profile.i
+                    not: profile.id
                 },
                 members: {
                     some: {
