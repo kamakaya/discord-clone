@@ -55,5 +55,4 @@ export async function POST(
         console.log("CHANNELS_POST", error);
         return new NextResponse("Internal Error", { status: 500 });
     }
-    
 }
