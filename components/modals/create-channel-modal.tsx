@@ -85,13 +85,13 @@ export const CreateChannelModal = () => {
                                         <FormLabel
                                             className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70"
                                         >
-                                            Server Name
+                                            Channel Name
                                         </FormLabel>
                                         <FormControl>
                                             <Input
                                                 disabled={isLoading}
                                                 className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-                                                placeholder="Enter server name"
+                                                placeholder="Enter channel name"
                                                 {...field}
                                             />
                                         </FormControl>
