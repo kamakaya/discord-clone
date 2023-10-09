@@ -1,9 +1,12 @@
 "use client";
 
+import qs from "query-string";
 import axios from "axios";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { ChannelType } from "@prisma/client";
+
 
 import {
     Dialog,
@@ -24,26 +27,42 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue
+} from "@/components/ui/select"
 
 const formSchema = z.object({
     name: z.string().min(1, {
-        message: "Server name is required."
-    })
+        message: "Channel name is required."
+    }).refine(
+        name => name !== "general",
+        {
+            message: "Channel name cannot be 'general'"
+        }
+    ),
+    type: z.nativeEnum(ChannelType)
 });
 
 
 export const CreateChannelModal = () => {
     const { isOpen, onClose, type } = useModal();
     const router = useRouter();
+    const params = useParams();
    
     const isModalOpen = isOpen && type === "createChannel";
 
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: ""
+            name: "",
+            type: ChannelType.TEXT
         }
     });
 
@@ -51,7 +70,14 @@ export const CreateChannelModal = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("/api/servers", values);
+            const url = qs.stringifyUrl({
+                url: "/api/channels",
+                query: {
+                    serverId: params?.serverId
+                }
+            });
+
+            await axios.post(url, values);
             
             form.reset();
             router.refresh();
@@ -95,6 +121,40 @@ export const CreateChannelModal = () => {
                                                 {...field}
                                             />
                                         </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField 
+                                control={form.control}
+                                name="type"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Channel Type</FormLabel>
+                                        <Select
+                                            disabled={isLoading}
+                                            onValueChange={field.onChange}
+                                            defaultValue={field.value}
+                                        >
+                                            <FormControl>
+                                                <SelectTrigger
+                                                    className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none"
+                                                >
+                                                    <SelectValue placeholder="Select a channel type" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                {Object.values(ChannelType).map((type) => (
+                                                    <SelectItem
+                                                        key={type}
+                                                        value={type}
+                                                        className="capitalize"
+                                                    >
+                                                        {type.toLowerCase()}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
                                         <FormMessage />
                                     </FormItem>
                                 )}
