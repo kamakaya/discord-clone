@@ -1,9 +1,10 @@
 import { redirectToSignIn } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
+import { getOrCreateConversation } from "@/lib/conversation";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import { redirect } from "next/navigation";
-import { getOrCreateConversation } from "@/lib/conversation";
+
 import { ChatHeader } from "@/components/chat/chat-header";
 
 interface MemberIdPageProps {

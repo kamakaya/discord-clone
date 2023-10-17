@@ -30,7 +30,6 @@ export const ChatHeader = ({
             <p className="font-semibold text-md text-black dark:text-white">
                 {name}
             </p>
-
         </div>
     )
 }
