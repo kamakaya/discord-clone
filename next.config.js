@@ -4,7 +4,9 @@ const nextConfig = {
         config.externals.push({
             "utf-9-validate": "commonjs utf-8-validate",
             bufferutil: "commonjs bufferutil"
-        })
+        });
+
+        return config;
     },
     images: {
         domains: [
