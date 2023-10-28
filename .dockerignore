@@ -1,0 +1,57 @@
+# General
+**/.DS_Store
+**/Thumbs.db
+**/npm-debug.log*
+**/yarn-error.log*
+**/.env*
+**/.git
+**/.gitignore
+**/.dockerignore
+**/README.md
+**/LICENSE
+
+# Node.js
+**/node_modules
+**/package-lock.json
+**/yarn.lock
+
+# Editor directories and files
+**/.idea
+**/.vscode
+**/*.sublime-project
+**/*.sublime-workspace
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.desktop
+@eaDir
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
