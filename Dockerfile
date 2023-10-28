@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:18
+FROM node:alpine as builder
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app
@@ -13,8 +13,29 @@ RUN npm install
 # Copy the app source code to the container
 COPY . .
 
-# Expose port 3000 (or whichever port your app runs on) to the outside
+# Generate Prisma Schema
+RUN npx prisma generate
+
+# Build the Next.js app
+RUN npm run build
+
+# Start with a clean image to reduce final image size
+FROM node:alpine as production
+
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the container for the dependencies required in production
+COPY package*.json ./
+
+# Install only production dependencies
+RUN npm install --only=production
+
+# Copy the built files from the previous stage
+COPY --from=builder /usr/src/app/ .
+# COPY --from=builder /usr/src/app/public ./public
+
+# Expose the port the app runs on
 EXPOSE 3000
 
 # Command to run the app
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start"]
