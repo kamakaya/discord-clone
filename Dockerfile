@@ -28,11 +28,10 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm install --only=production  --verbose
 
 # Copy the built files from the previous stage
 COPY --from=builder /usr/src/app/ .
-# COPY --from=builder /usr/src/app/public ./public
 
 # Expose the port the app runs on
 EXPOSE 3000

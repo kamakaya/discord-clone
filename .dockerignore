@@ -48,6 +48,8 @@ $RECYCLE.BIN/
 .com.apple.timemachine.donotpresent
 .desktop
 @eaDir
+.env.base64
+
 
 # Directories potentially created on remote AFP share
 .AppleDB
