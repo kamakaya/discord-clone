@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Live Demo
 
-Click [here](http://34.170.54.73/) for a live demo of the application.
+Click [here](https://discord-clone-bmkyy4heza-uc.a.run.app/) for a live demo of the application.
 
 ## Development
 
