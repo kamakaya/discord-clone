@@ -1,6 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The application is a clone of the Discord web application. This was built as with the help of a tutorial by "Code with Antonio" on Youtube.
 
-## Getting Started
+## Live Demo
+
+Click [here](http://34.170.54.73/) for a live demo of the application.
+
+## Development
 
 To run the development server:
 
@@ -12,7 +16,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployment
 
-Tried deploying the application through Railway.app, but it kept crashing. Instead, I decided to dockarize it and deploy it directly through GCP.
+Tried deploying the application through Railway.app, but it kept crashing. Instead, I decided to dockarize it and deploy it directly through GCP. Initially deployed it through Kubernetes, but it's too expensive to make sense (>$1/day). Instead, I ended up deploying through Cloud Run bc it's a lot cheaper.
 
 
 ## Technologies used
@@ -21,4 +25,9 @@ Tried deploying the application through Railway.app, but it kept crashing. Inste
 - **Database**: Prisma, MySQL, and Planetscale
 - **Authentication & User Management**: Clerk
 - **Realtime messaging**: Socket.io
-- **Deployment**: Railway.app
+- **Deployment / Hosting**: Docker, Google Cloud Run
+
+## Roadmap
+A couple of items that I want to work on
+- Notifications - can be as simple as a visual alert on new messages in the channel / server since it was last opened
+- React to messages with Emoji's
