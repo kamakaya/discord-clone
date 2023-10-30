@@ -29,5 +29,11 @@ Tried deploying the application through Railway.app, but it kept crashing. Inste
 
 ## Roadmap
 A couple of items that I want to work on
-- Notifications - can be as simple as a visual alert on new messages in the channel / server since it was last opened
+
+### Infrastructure
+- Automated deployments (CI/CD with either Github Actions or Cloudbuild)
+- Migrate Database to GCP
+
+### Application
+- Notifications - as simple as a visual alert on new messages in the channel / server since it was last opened
 - React to messages with Emoji's
