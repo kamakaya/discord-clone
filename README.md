@@ -27,6 +27,9 @@ Tried deploying the application through Railway.app, but it kept crashing. Inste
 - **Realtime messaging**: Socket.io
 - **Deployment / Hosting**: Docker, Google Cloud Run
 
+### Architecture
+![discord-clone-architecture](https://github.com/kamakaya/discord-clone/assets/32623963/894c4ce2-cd5a-4aeb-8be0-099b23e65c03)
+
 ## Roadmap
 A couple of items that I want to work on
 
