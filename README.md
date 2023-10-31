@@ -40,3 +40,4 @@ A couple of items that I want to work on
 ### Application
 - Notifications - as simple as a visual alert on new messages in the channel / server since it was last opened
 - React to messages with Emoji's
+- Send gifs in chat
