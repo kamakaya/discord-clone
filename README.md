@@ -28,7 +28,7 @@ Tried deploying the application through Railway.app, but it kept crashing. Inste
 - **Deployment / Hosting**: Docker, Google Cloud Run
 
 ### Architecture
-![discord-clone-architecture](https://github.com/kamakaya/discord-clone/assets/32623963/894c4ce2-cd5a-4aeb-8be0-099b23e65c03)
+![discord-clone-architecture](https://github.com/kamakaya/discord-clone/assets/32623963/92c7e86e-784d-4711-a76e-d0c96c24d944)
 
 ## Roadmap
 A couple of items that I want to work on
